@@ -1,4 +1,4 @@
-package com.github.alexrichards.ricotta.gradle
+package com.github.alexrichards.gradle.ricotta
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

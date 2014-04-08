@@ -1,7 +1,6 @@
-import com.github.alexrichards.ricotta.gradle.RicottaConfigurationExtension
-import com.github.alexrichards.ricotta.gradle.RicottaTranslation
+import com.github.alexrichards.gradle.ricotta.RicottaConfigurationExtension
+import com.github.alexrichards.gradle.ricotta.RicottaTranslation
 import org.gradle.api.Project
-import org.gradle.api.plugins.ExtensionAware
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Assert
 import org.junit.Test
