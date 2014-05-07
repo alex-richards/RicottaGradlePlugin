@@ -1,14 +1,6 @@
 allprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-        }
-    }
-
-    dependencies {
-        repositories {
-            mavenCentral()
-        }
+    repositories {
+        mavenCentral()
     }
 
     group = 'com.github.alexrichards.gradle'
@@ -16,3 +8,4 @@ allprojects {
 
     apply plugin: 'maven'
 }
+
