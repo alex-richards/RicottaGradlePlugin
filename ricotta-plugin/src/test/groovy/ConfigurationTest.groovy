@@ -47,5 +47,7 @@ class ConfigurationTest {
             Assert.assertEquals 'test subset', translation.getSubset()
             Assert.assertEquals new File('test target'), translation.getTarget()
         }
+
+        Assert.assertEquals(['en', 'es'], project.ricotta.resourceConfig)
     }
 }

@@ -7,7 +7,7 @@ class RicottaPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.configure(project) {
-            def ricotta = project.extensions.create 'ricotta', RicottaConfigurationExtension
+            final RicottaConfigurationExtension ricotta = project.extensions.create 'ricotta', RicottaConfigurationExtension
 
             afterEvaluate {
                 tasks.create('downloadTranslations') << {

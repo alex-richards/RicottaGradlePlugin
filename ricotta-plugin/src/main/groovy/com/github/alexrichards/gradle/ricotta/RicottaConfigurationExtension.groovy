@@ -19,4 +19,10 @@ class RicottaConfigurationExtension {
         translations << (closure.delegate = new RicottaTranslation())
         closure.call()
     }
+
+    def List<String> getResourceConfig() {
+        return translations.collect { RicottaTranslation translation ->
+            translation.language
+        }
+    }
 }
