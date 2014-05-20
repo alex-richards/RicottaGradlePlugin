@@ -21,7 +21,7 @@ class RicottaConfigurationExtension {
     }
 
     def List<String> getResourceConfig() {
-        return translations.collect { RicottaTranslation translation ->
+        return translations.collect { final RicottaTranslation translation ->
             translation.language
         }
     }

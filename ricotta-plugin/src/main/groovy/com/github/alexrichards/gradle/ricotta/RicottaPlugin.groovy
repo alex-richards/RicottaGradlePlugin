@@ -5,13 +5,16 @@ import org.gradle.api.Project
 
 class RicottaPlugin implements Plugin<Project> {
     @Override
-    void apply(Project project) {
+    void apply(final Project project) {
         project.configure(project) {
             final RicottaConfigurationExtension ricotta = project.extensions.create 'ricotta', RicottaConfigurationExtension
 
             afterEvaluate {
-                tasks.create('downloadTranslations') << {
-                    ricotta.translations.each { RicottaTranslation translation ->
+                tasks.create('downloadTranslations') {
+                    group 'Ricotta'
+                    description 'Downloads Ricotta translations.'
+                } << {
+                    ricotta.translations.each { final RicottaTranslation translation ->
                         final File targetDirectory = translation.target.getParentFile()
                         if (!targetDirectory.exists()) {
                             targetDirectory.mkdirs()
@@ -19,7 +22,7 @@ class RicottaPlugin implements Plugin<Project> {
                             translation.target.delete()
                         }
 
-                        String resource = "http://${ricotta.host}/" +
+                        final String resource = "http://${ricotta.host}/" +
                                 "proj/${ricotta.projectName}/" +
                                 "branch/${translation.branch}/" +
                                 "lang/${translation.language}/" +
@@ -30,11 +33,14 @@ class RicottaPlugin implements Plugin<Project> {
                     }
                 }
 
-                tasks.create('displayTranslations') << {
+                tasks.create('displayTranslations') {
+                    group 'Ricotta'
+                    description 'Displays Ricotta configuration.'
+                } << {
                     println ricotta.projectName
                     println ricotta.host
 
-                    ricotta.translations.each { RicottaTranslation translation ->
+                    ricotta.translations.each { final RicottaTranslation translation ->
                         println '\t' + translation.language
                         println '\t' + translation.branch
                         println '\t' + translation.subset
